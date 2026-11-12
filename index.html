@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dunia Kecil Ilham & Nazwa</title>
+  <meta name="description" content="Website kenangan blocky ala Minecraft untuk Ilham & Nazwa." />
+
+  <!-- Font Minecraft ada di assets/font/ (diatur di css/style.css) -->
+  <link rel="preload" href="assets/font/minecraft-judul.woff" as="font" type="font/woff" crossorigin />
+
+  <!-- Tampilan / desain -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= LAYAR PEMBUKA ================= -->
+  <div id="pembuka" class="pembuka" data-testid="opening-screen">
+    <div class="bintang-bintang"></div>
+    <div class="pembuka-isi">
+      <p class="label-kecil">✦ AMATJAMBU · PIXEL ✦</p>
+      <h1 id="pembuka-judul" class="judul-mc judul-besar" data-testid="opening-title"></h1>
+      <p id="pembuka-subjudul" class="pembuka-sub"></p>
+
+      <div class="panggung-karakter">
+        <div class="karakter karakter-kiri">
+          <canvas id="sprite-cinnamoroll" width="16" height="16" aria-label="Cinnamoroll"></canvas>
+          <span class="nama-karakter">iamm</span>
+        </div>
+        <div class="hati-tengah">💗</div>
+        <div class="karakter karakter-kanan">
+          <canvas id="sprite-kitty" width="16" height="16" aria-label="Hello Kitty"></canvas>
+          <span class="nama-karakter">awaa</span>
+        </div>
+      </div>
+
+      <button id="tombol-mulai" class="tombol-mc tombol-besar" data-testid="opening-start-button"></button>
+      <p class="petunjuk">🎧 Tekan Mulai ya cayangg</p>
+    </div>
+    <div class="tanah-rumput"></div>
+  </div>
+
+  <!-- Hiasan samping & efek -->
+  <div class="pinggir pinggir-kiri" aria-hidden="true"></div>
+  <div class="pinggir pinggir-kanan" aria-hidden="true"></div>
+  <div id="wadah-melayang" class="wadah-melayang" aria-hidden="true"></div>
+
+  <!-- ================= NAVIGASI + MUSIK ================= -->
+  <nav class="navbar" data-testid="navbar">
+    <a href="#profil" class="logo-nav judul-mc" data-testid="nav-logo"><canvas id="sprite-jambu-nav" width="16" height="16"></canvas><span id="logo-teks"></span></a>
+    <div class="menu-nav">
+      <a href="#profil" data-testid="nav-link-profil">Profil</a>
+      <a href="#timeline" data-testid="nav-link-timeline">Cerita</a>
+      <a href="#galeri" data-testid="nav-link-galeri">Galeri</a>
+      <a href="#surat" data-testid="nav-link-surat">Surat</a>
+      <a href="#buku-tamu" data-testid="nav-link-buku-tamu">Ucapan</a>
+    </div>
+    <button id="tombol-musik" class="tombol-musik" data-testid="music-toggle-button">
+      <span class="equalizer"><i></i><i></i><i></i><i></i></span>
+      <span id="label-musik">Putar</span>
+    </button>
+  </nav>
+
+  <main>
+    <!-- ================= PROFIL ================= -->
+    <section id="profil" class="bagian">
+      <p class="label-bab">— BAB 01 —</p>
+      <h2 class="judul-mc judul-bagian">Pemain di Dunia Ini</h2>
+      <p id="perkenalan" class="teks-pengantar"></p>
+
+      <div class="profil-grid">
+        <article class="kartu-profil miring-kiri muncul-saat-scroll" data-testid="profile-card-cowok">
+          <div class="bingkai-foto"><img id="foto-cowok" alt="" /></div>
+          <span id="julukan-cowok" class="lencana"></span>
+          <h3 id="nama-cowok" class="judul-mc" data-testid="profile-name-cowok"></h3>
+          <p id="desk-cowok"></p>
+        </article>
+
+        <div class="tengah-profil muncul-saat-scroll">
+          <div class="blok-hati"><canvas id="sprite-hati" width="16" height="16"></canvas></div>
+          <p class="label-kecil">JADIAN SEJAK</p>
+          <p id="tanggal-jadian" class="judul-mc tanggal-jadian" data-testid="anniversary-date"></p>
+          <div class="kotak-hari">
+            <span id="jumlah-hari" class="judul-mc" data-testid="days-together"></span>
+            <small>hari bersama</small>
+          </div>
+        </div>
+
+        <article class="kartu-profil miring-kanan muncul-saat-scroll" data-testid="profile-card-cewek">
+          <div class="bingkai-foto"><img id="foto-cewek" alt="" /></div>
+          <span id="julukan-cewek" class="lencana lencana-pink"></span>
+          <h3 id="nama-cewek" class="judul-mc" data-testid="profile-name-cewek"></h3>
+          <p id="desk-cewek"></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= HITUNG MUNDUR ================= -->
+    <section id="hitung-mundur" class="bagian bagian-gelap">
+      <p class="label-bab">— BAB 02 —</p>
+      <h2 id="judul-countdown" class="judul-mc judul-bagian"></h2>
+      <p id="ket-countdown" class="teks-pengantar"></p>
+      <div class="countdown muncul-saat-scroll" data-testid="countdown">
+        <div class="blok-waktu"><span id="cd-hari" data-testid="countdown-days">0</span><small>HARI</small></div>
+        <div class="blok-waktu"><span id="cd-jam">0</span><small>JAM</small></div>
+        <div class="blok-waktu"><span id="cd-menit">0</span><small>MENIT</small></div>
+        <div class="blok-waktu"><span id="cd-detik">0</span><small>DETIK</small></div>
+      </div>
+      <p id="tanggal-target" class="label-kecil"></p>
+    </section>
+
+    <!-- ================= TIMELINE ================= -->
+    <section id="timeline" class="bagian">
+      <p class="label-bab">— BAB 03 —</p>
+      <h2 class="judul-mc judul-bagian">Peta Perjalanan Kita</h2>
+      <p class="teks-pengantar">Setiap checkpoint yang sudah kita lewati bersama.</p>
+      <div id="daftar-timeline" class="timeline" data-testid="timeline-list"></div>
+    </section>
+
+    <!-- ================= GALERI ================= -->
+    <section id="galeri" class="bagian bagian-gelap">
+      <p class="label-bab">— BAB 04 —</p>
+      <h2 class="judul-mc judul-bagian">Inventory Kenangan</h2>
+      <p class="teks-pengantar">Klik foto untuk memperbesar.</p>
+      <div id="grid-galeri" class="galeri" data-testid="gallery-grid"></div>
+    </section>
+
+    <!-- ================= SURAT ================= -->
+    <section id="surat" class="bagian">
+      <p class="label-bab">— BAB 05 —</p>
+      <h2 class="judul-mc judul-bagian">Surat Untukmu</h2>
+      <p class="teks-pengantar">Ketuk peti untuk membuka.</p>
+      <button id="peti-surat" class="peti" data-testid="letter-open-button" aria-label="Buka surat">
+        <span class="peti-tutup"></span><span class="peti-badan"></span><span class="peti-kunci"></span>
+      </button>
+      <article id="kertas-surat" class="kertas-surat" data-testid="letter-content" hidden>
+        <p id="surat-pembuka" class="judul-mc"></p>
+        <div id="surat-isi"></div>
+        <p id="surat-penutup" class="surat-ttd"></p>
+        <p id="surat-pengirim" class="judul-mc surat-ttd"></p>
+      </article>
+    </section>
+
+    <!-- ================= BUKU TAMU ================= -->
+    <section id="buku-tamu" class="bagian bagian-gelap">
+      <p class="label-bab">— BAB 06 —</p>
+      <h2 id="judul-tamu" class="judul-mc judul-bagian"></h2>
+      <p id="ket-tamu" class="teks-pengantar"></p>
+      <div class="tamu-wrap">
+        <form id="form-tamu" class="panel-mc form-tamu" data-testid="guestbook-form">
+          <label for="input-nama">Nama</label>
+          <input id="input-nama" maxlength="40" required placeholder="Steve" data-testid="guestbook-name-input" />
+          <label for="input-pesan">Ucapan</label>
+          <textarea id="input-pesan" maxlength="300" rows="4" required placeholder="Semoga langgeng terus..." data-testid="guestbook-message-input"></textarea>
+          <button type="submit" class="tombol-mc" data-testid="guestbook-submit-button">Kirim Ucapan 💌</button>
+          <p class="catatan">*Ucapan tersimpan di browser perangkat ini.</p>
+        </form>
+        <div id="daftar-tamu" class="daftar-tamu" data-testid="guestbook-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="tanah-rumput"></div>
+    <p id="teks-footer" data-testid="footer-text"></p>
+  </footer>
+
+  <!-- Lightbox galeri -->
+  <div id="lightbox" class="lightbox" hidden data-testid="gallery-lightbox">
+    <button id="tutup-lightbox" class="tombol-mc tombol-tutup" data-testid="lightbox-close-button">✕</button>
+    <div id="isi-lightbox"></div>
+  </div>
+
+  <audio id="audio-latar" loop preload="auto"></audio>
+
+  <!-- Urutan penting: data dulu, baru karakter, baru logika -->
+  <script src="js/data-kenangan.js"></script>
+  <script src="js/karakter-pixel.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
