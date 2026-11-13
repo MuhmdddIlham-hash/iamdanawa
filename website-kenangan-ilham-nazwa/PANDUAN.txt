@@ -1,0 +1,50 @@
+=============================================================
+  💗 PANDUAN WEBSITE KENANGAN ILHAM & NAZWA 💗
+=============================================================
+
+CARA MEMBUKA
+  Klik 2x file  index.html  → terbuka di browser (Chrome disarankan).
+  Atau di VS Code: install ekstensi "Live Server", klik kanan index.html
+  → "Open with Live Server".
+
+ISI FOLDER
+  index.html              → kerangka halaman (urutan bagian)
+  css/style.css           → semua DESAIN (warna, font, ukuran, animasi)
+  js/data-kenangan.js     → ⭐ SEMUA ISI: nama, tanggal, cerita, foto, lagu, surat
+  js/karakter-pixel.js    → gambar pixel Cinnamoroll, Hello Kitty, jambu, hati
+  js/main.js              → logika (countdown, buku tamu, musik) — jarang diubah
+  assets/lagu/            → taruh file lagu .mp3 di sini
+  assets/foto/            → taruh foto .jpg / .png di sini
+  assets/video/           → taruh video .mp4 di sini
+  assets/font/            → font Minecraft (judul & teks)
+
+-------------------------------------------------------------
+MAU UBAH APA?  →  BUKA FILE INI
+-------------------------------------------------------------
+  Ganti LAGU ............ 1) copy lagu ke assets/lagu/  (misal: lagu-kita.mp3)
+                          2) buka js/data-kenangan.js, bagian "1. LAGU LATAR"
+                             ubah  file: "assets/lagu/lagu-kita.mp3"
+  Ganti NAMA / TANGGAL .. js/data-kenangan.js  bagian "3. PROFIL BERDUA"
+  Ganti FOTO PROFIL ..... copy foto ke assets/foto/, lalu ubah  foto: "..."
+  Tambah MOMEN TIMELINE . js/data-kenangan.js  bagian "5. TIMELINE"
+                          (copy satu blok { ... }, jangan lupa koma)
+  Tambah FOTO/VIDEO ..... js/data-kenangan.js  bagian "6. GALERI"
+  Ganti SURAT ........... js/data-kenangan.js  bagian "7. SURAT CINTA"
+  Ganti TANGGAL COUNTDOWN js/data-kenangan.js  bagian "4. HITUNG MUNDUR"
+                          (kosong = otomatis ke anniversary berikutnya)
+  Ganti EMOJI MELAYANG .. js/data-kenangan.js  bagian "9. HIASAN"
+  Ganti WARNA ........... css/style.css  paling atas (bagian :root)
+  Ganti FONT ............ css/style.css  baris --font-mc dan --font-teks
+
+TIPS
+  - Nama file foto/lagu jangan pakai spasi. Pakai tanda-hubung: foto-pantai.jpg
+  - Huruf besar/kecil berpengaruh: Foto.JPG ≠ foto.jpg
+  - Lagu baru jalan setelah tombol "MULAI" ditekan (aturan browser).
+  - Font Minecraft sudah ada di assets/font/ (jalan walau offline).
+  - Buku tamu tersimpan di browser perangkat masing-masing (tanpa server).
+    Ucapan yang ditulis di HP A tidak muncul di HP B.
+
+ONLINE-KAN GRATIS (opsional)
+  Upload seluruh folder ini ke Netlify Drop (app.netlify.com/drop)
+  atau GitHub Pages → dapat link untuk dikirim ke Nazwa.
+=============================================================
